@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = @Localizer["Jobs Title"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>@Localizer["Jobs Details"]</p>
+
+<div class="container-fluid">
+    <div class="container mt-5 overflow-hidden">
+        <div class="row .row-eq-height">
+            <div class="col-6 text-center">
+                <h4 id="concurrentJobsCount"></h4>
+            </div>
+            <div class="col-6 text-center">
+                <h4 id="nonConcurrentJobsCount"></h4>
+            </div>
+        </div>
+        <div class="row .row-eq-height">
+            <div class="col-6 text-center">
+                <h4 id="concurrentJobsHeader"></h4>
+            </div>
+            <div class="col-6 text-center">
+                <h4 id="nonConcurrentJobsHeader"></h4>
+            </div>
+        </div>
+        <div class="row overflow-scroll" style="max-height: 500px;">
+            <div class="col-6">
+                <ol id="concurrentJobs"></ol>
+            </div>
+            <div class="col-6">
+                <ol id="nonConcurrentJobs"></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/microsoft/Signalr/dist/browser/signalr.js"></script>
+<script src=~/js/hub.js></script>

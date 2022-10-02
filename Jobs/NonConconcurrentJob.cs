@@ -22,7 +22,7 @@ namespace NanoCorpWebAppMVCNoAuth.Jobs
             await _hubContext.Clients.All.SendAsync("nonConcurrentJobs", beginMessage);
 
             //we have long running job
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             //complete the job
             var endMessage = $"NonConconcurrentJob Job END {count} {DateTime.UtcNow}";
