@@ -53,7 +53,10 @@ builder.Services.AddQuartz(q =>
 builder.Services.AddQuartzHostedService(
     q => q.WaitForJobsToComplete = true);
 
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    options.MaximumParallelInvocationsPerClient = 5;
+});
 
 
 var app = builder.Build();

@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model NanoCorpWebAppMVCNoAuth.Controllers.PersonController.Person
+
+@{
+    ViewData["Title"] = @Localizer["Person Title"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>@Localizer["Person Details"]</p>
+
+<div class="container-fluid">
+    <div class="row align-items-center mt-5 row-eq-height">
+        <div class="col-sm-6">
+            Name: <input asp-for="@Model.Name" />
+            <span asp-validation-for="@Model.Name" />
+        </div>
+        <div class="col-sm-6">
+            Age: <input asp-for="@Model.Age" />
+            <span asp-validation-for="@Model.Age" />
+        </div>
+    </div>
+</div>
