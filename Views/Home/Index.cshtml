@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Welcome"]</h1>
+    <br />
+    <h2 class="display-4">@Html.Raw(ViewData["Message"])</h2>
+    <p>
+        @(Html.Encode(DateTime.Now.ToLongDateString()))
+    </p>
+    <p>@Localizer["SubTitle"]</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row align-items-center mt-5 row-eq-height">
+        <div class="col-sm-1 text-center">
+            Row #1
+        </div>
+        <div class="col-sm-2">
+            &nbsp;
+        </div>
+        <div class="col-sm-9">
+            To switch directories, type <kbd>cd</kbd> followed by the name of the directory.&nbsp;
+            To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+        </div>
+    </div>
+    <div class="row align-items-center row-eq-height">
+        <div class="col-sm-1 text-center">
+            Row #2
+        </div>
+        <div class="col-sm-2">
+            &nbsp;
+        </div>
+        <div class="col-sm-9">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary">Left</button>
+                <button type="button" class="btn btn-secondary">Middle</button>
+                <button type="button" class="btn btn-secondary">Right</button>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center row-eq-height text-center">
+        <div class="col-sm-1">
+            Row #3
+        </div>
+        <div class="col-sm-2">
+            &nbsp;
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-secondary">Secondary</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-success">Success</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-danger">Danger</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-warning">Warning</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-info">Info</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-light">Light</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-dark">Dark</button>
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-link">Link</button>
+        </div>
+    </div>
+</div>
