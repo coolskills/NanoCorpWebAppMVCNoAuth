@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoCorpWebAppMVCNoAuth", "NanoCorpWebAppMVCNoAuth.csproj", "{27DF1901-A37A-49DA-AFD6-3C6A4657D23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NanoCorpWebAppMVCNoAuth", "NanoCorpWebAppMVCNoAuth.csproj", "{27DF1901-A37A-49DA-AFD6-3C6A4657D23A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NanoCorpDemoMinimalAPIs", "..\NanoCorpDemoMinimalAPIs\NanoCorpDemoMinimalAPIs.csproj", "{5589427A-6B8E-4B0E-B542-87C35F2978E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoCorpJWTAuth", "..\NanoCorpJWTAuth\NanoCorpJWTAuth.csproj", "{A2BD4A52-4D99-4903-BFF5-D0CD977006B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{27DF1901-A37A-49DA-AFD6-3C6A4657D23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27DF1901-A37A-49DA-AFD6-3C6A4657D23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27DF1901-A37A-49DA-AFD6-3C6A4657D23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5589427A-6B8E-4B0E-B542-87C35F2978E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5589427A-6B8E-4B0E-B542-87C35F2978E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5589427A-6B8E-4B0E-B542-87C35F2978E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5589427A-6B8E-4B0E-B542-87C35F2978E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BD4A52-4D99-4903-BFF5-D0CD977006B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BD4A52-4D99-4903-BFF5-D0CD977006B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BD4A52-4D99-4903-BFF5-D0CD977006B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BD4A52-4D99-4903-BFF5-D0CD977006B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

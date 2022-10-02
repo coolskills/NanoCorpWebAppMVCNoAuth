@@ -1,3 +1,6 @@
+using NanoCorpWebAppMVCNoAuth.Jobs;
+using Quartz;
+
 var builder = WebApplication.CreateBuilder(args);
 var supportedCultures = new[] { "en-CA", "it-IT" };
 
@@ -15,6 +18,43 @@ builder.Services.Configure<RequestLocalizationOptions>(opt =>
         .AddSupportedUICultures(supportedCultures)
         .SetDefaultCulture(supportedCultures[0]);
 });
+
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+
+    var conconcurrentJobKey = new JobKey("ConconcurrentJob");
+    q.AddJob<ConconcurrentJob>(opts => opts.WithIdentity(conconcurrentJobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(conconcurrentJobKey)
+        .WithIdentity("ConconcurrentJob-trigger")
+        .WithSimpleSchedule(x => x
+                .WithIntervalInSeconds(3)
+            //.WithRepeatCount(10)
+            .RepeatForever()
+        )
+    );
+
+    var nonConconcurrentJobKey = new JobKey("NonConconcurrentJob");
+    q.AddJob<NonConconcurrentJob>(opts => opts.WithIdentity(nonConconcurrentJobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(nonConconcurrentJobKey)
+        .WithIdentity("NonConconcurrentJob-trigger")
+        .WithSimpleSchedule(x => x
+            .WithIntervalInSeconds(5)
+            //.WithRepeatCount(10)
+            .RepeatForever()
+        )
+    );
+
+});
+
+builder.Services.AddQuartzHostedService(
+    q => q.WaitForJobsToComplete = true);
+
+builder.Services.AddSignalR();
+
 
 var app = builder.Build();
 
@@ -41,6 +81,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<JobsHub>("/hub");
+});
 
 //app.MapControllerRoute(
 //    name: "defaultLocalized",
